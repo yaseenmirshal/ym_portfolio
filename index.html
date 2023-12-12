@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       
+        <link rel="stylesheet" href="style.css">
+        
+        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="icon" href="ym inno logo copy-modified.png">
+        <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init("VMtF3hZJL-InO-3mJ");
+   })();
+</script>
+        <title>mirshal portfolio</title>
+    </head>
+    <body>
+        <!--===== HEADER =====-->
+        <header class="l-header">
+            <img class="logoimg" src="ymremove.png">
+            <nav class="nav bd-grid">
+                
+                <div>
+                    
+                    <a href="#" class="nav__logo">Portfolio.</a>
+                    
+                </div>
+
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="#home" class="nav__link ">Home</a></li>
+                        <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
+                        <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
+                        <li class="nav__item"><a href="#work" class="nav__link">Works</a></li>
+                        <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+                        <li class="nav__item"><a href="ym.pdf" target="_blank" class="nav__link">Download CV</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class='bx bx-menu'></i>
+                </div>
+            </nav>
+        </header>
+
+        <main class="l-main"> 
+            <!-- ===== HOME ===== -->
+            <section class="home bd-grid" id="home">
+                <div class="home__data">
+                    <h1 class="home__title">Hi,<br>I'am <br> <span class="webd">WEB DESIGNER</span></h1>
+                    <!-- ////////////////////////////DANGER ZAONE/////////////////// -->
+                    <div class="containermir">
+                        <span id="text1"></span>
+                        <span id="text2"></span>
+                    </div>
+                    
+                    <svg id="filters">
+                        <defs>
+                            <filter id="threshold">
+                                <feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0
+                                                        0 1 0 0 0
+                                                        0 0 1 0 0
+                                                        0 0 0 255 -140" />
+                            </filter>
+                        </defs>
+                    </svg>
+                                <style>
+                                  @import url("https://fonts.googleapis.com/css?family=Raleway:900&display=swap");
+                    
+                    body {
+                        margin: 0px;
+                        /* background-color: #000435; */
+                    }
+                    /* /////yaseen mirshal animation ...... */
+                    .containermir {
+                        position: absolute;
+                        margin: auto;
+                        width: 250px;
+                        height: 80pt;
+                        margin-left: 140px;
+                        margin-top: 300px;
+                        top: 0;
+                        bottom: 0;
+                        /* background-color: white; */
+                    
+                        filter: url(#threshold) blur(0.6px);
+                    }
+                    
+                    #text1,#text2 {
+                        position: absolute;
+                        width: 100%;
+                        display: inline-block;
+                        color: #DEDEDE;
+
+                    
+                        font-family: "Raleway", sans-serif;
+                        font-size: 53pt;
+                        text-align: center;
+                    
+                        user-select: none;
+                    } 
+                                </style>
+                                <script>
+                                  const elts = {
+                        text1: document.getElementById("text1"),
+                        text2: document.getElementById("text2")
+                    };
+                    
+                    const texts = [
+                        "Yaseen",
+                        "Mirshal",
+                    ];
+                    
+                    const morphTime = 1;
+                    const cooldownTime = 0.70;
+                    
+                    let textIndex = texts.length - 1;
+                    let time = new Date();
+                    let morph = 0;
+                    let cooldown = cooldownTime;
+                    
+                    elts.text1.textContent = texts[textIndex % texts.length];
+                    elts.text2.textContent = texts[(textIndex + 1) % texts.length];
+                    
+                    function doMorph() {
+                        morph -= cooldown;
+                        cooldown = 0;
+                    
+                        let fraction = morph / morphTime;
+                    
+                        if (fraction > 1) {
+                            cooldown = cooldownTime;
+                            fraction = 1;
+                        }
+                    
+                        setMorph(fraction);
+                    }
+                    
+                    function setMorph(fraction) {
+                        elts.text2.style.filter = `blur(${Math.min(8 / fraction - 8, 100)}px)`;
+                        elts.text2.style.opacity = `${Math.pow(fraction, 0.4) * 100}%`;
+                    
+                        fraction = 1 - fraction;
+                        elts.text1.style.filter = `blur(${Math.min(8 / fraction - 8, 100)}px)`;
+                        elts.text1.style.opacity = `${Math.pow(fraction, 0.4) * 100}%`;
+                    
+                        elts.text1.textContent = texts[textIndex % texts.length];
+                        elts.text2.textContent = texts[(textIndex + 1) % texts.length];
+                    }
+                    
+                    function doCooldown() {
+                        morph = 0;
+                    
+                        elts.text2.style.filter = "";
+                        elts.text2.style.opacity = "100%";
+                    
+                        elts.text1.style.filter = "";
+                        elts.text1.style.opacity = "0%";
+                    }
+                    
+                    function animate() {
+                        requestAnimationFrame(animate);
+                    
+                        let newTime = new Date();
+                        let shouldIncrementIndex = cooldown > 0;
+                        let dt = (newTime - time) / 1000;
+                        time = newTime;
+                    
+                        cooldown -= dt;
+                    
+                        if (cooldown <= 0) {
+                            if (shouldIncrementIndex) {
+                                textIndex++;
+                            }
+                    
+                            doMorph();
+                        } else {
+                            doCooldown();
+                        }
+                    }
+                    
+                    animate();
+                                </script>
+
+                    <!-- ///////////////////////////// mirshal end ////////////// -->
+                    <a href="http://wa.link/x6pfzt" target="_blank" class="button">Get in touch</a>
+                </div>
+
+                <div class="home__social">
+                    <a href="https://instagram.com/yaseen_mirshal?igshid=NzZlODBkYWE4Ng==" target="_blank" class="home__social-icon"><i class='bx bxl-instagram'></i></a>
+                    <a href="http://t.me/yaseen_mirshal"target="_blank" class="home__social-icon"><i class='bx bxl-telegram' ></i></a>
+                    <a href="https://github.com/yaseenmirshal"target="_blank" class="home__social-icon"><i class='bx bxl-github' ></i></a>
+                    <a href="https://www.youtube.com/channel/UC-alWGLEsO8jUZaHeNBvgTA"target="_blank" class="home__social-icon"><i class='bx bxl-youtube' ></i></a>
+                    <a href="https://twitter.com/yaseen_mirshal"target="_blank" class="home__social-icon"><i class='bx bxl-twitter' ></i></a>
+                    <a href="https://www.linkedin.com/in/yaseen-mirshal-11a7b623a/"target="_blank" class="home__social-icon"><i class='bx bxl-linkedin' ></i></a>
+                </div> 
+
+                <div class="home__img">
+                    <svg class="home__blob" viewBox="0 0 479 467" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <mask id="mask0" mask-type="alpha">
+                            <path d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z"/>
+                        </mask>
+                        <g mask="url(#mask0)">
+                            <path d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z"/>
+                            <image class="home__blob-img" x="70" y="7" href="Mirshal-removebg-preview.png"/>
+                        </g>
+                    </svg>
+                </div>
+            </section>
+            <!-- ////ABOUT///// -->
+            <section class="about section" id="about">
+                <h2 class="section-title">About</h2>
+                <div class="about__container bd-grid"></div>
+                
+            </section>
+            <!-- <div class="about__img"> -->
+                <img  class="lapimg" src="code lap.jpeg">
+            <!-- </div> -->
+                    <div class="aboutclass">
+                        <h2 class="about__subtitle">I'am Yaseen Mirshal</h2>
+                        <p class="about__text">
+                            As a dedicated web developer, I am enthusiastic about undertaking freelance projects. Please explore my portfolio to witness the diverse range of projects . Should you have any projects in mind, do not hesitate to contact me. My commitment to excellence is driven by a profound passion for programming and an unwavering commitment to continuous self-improvement. Rather than relying solely on qualifications, I prioritize ongoing learning to broaden my skill set. I look forward to the prospect of contributing to and enhancing your projects with my expertise and dedication.
+                        </p>           
+                    </div>                                   
+                </div>
+            </section>
+
+             <!-- ===== SKILLS ===== -->
+              <section class="skills section" id="skills">
+                <h2 class="section-title">Skills</h2>
+
+                <div class="skills__container bd-grid">          
+                    <div>
+                        <h2 class="skills__subtitle">Profesional Skills</h2>
+                        <p class="skills__text">I possess advanced proficiency in HTML and CSS, complemented by a foundational understanding of JavaScript. My passion lies in the meticulous craft of web design, and I am dedicated to continually expanding my skills in this dynamic field.</p>
+                        <div class="skills__data">
+                            <div class="skills__names">
+                                <i class='bx bxl-html5 skills__icon'></i>
+                                <span class="skills__name">HTML</span>
+                            </div>
+                            <div class="skills__bar skills__html">
+
+                            </div>
+                            <div>
+                                <span class="skills__percentage">95%</span>
+                            </div>
+                        </div>
+                        <div class="skills__data">
+                            <div class="skills__names">
+                                <i class='bx bxl-css3 skills__icon'></i>
+                                <span class="skills__name">CSS</span>
+                            </div>
+                            <div class="skills__bar skills__css">
+                                
+                            </div>
+                            <div>
+                                <span class="skills__percentage">85%</span>
+                            </div>
+                        </div>
+                        <div class="skills__data">
+                            <div class="skills__names">
+                                <i class='bx bxl-javascript skills__icon' ></i>
+                                <span class="skills__name">JAVASCRIPT</span>
+                            </div>
+                            <div class="skills__bar skills__js">
+                                
+                            </div>
+                            <div>
+                                <span class="skills__percentage">65%</span>
+                            </div>
+                        </div>
+                        <div class="skills__data">
+                            <div class="skills__names">
+                                <i class='bx bxs-paint skills__icon'></i>
+                                <span class="skills__name">Responsive Design</span>
+                            </div>
+                            <div class="skills__bar skills__ux">
+                                
+                            </div>
+                            <div>
+                                <span class="skills__percentage">85%</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>              
+                        <img src="Code photo.jpeg" alt="" class="skills__img">
+                    </div>
+                </div>
+            </section>  
+
+             <!-- ===== WORK ===== -->
+            <section class="work section" id="work">
+                <h2 class="section-title">Works</h2>
+
+                <div class="work__container bd-grid">
+                    <a href="https://github.com/yaseenmirshal/linked.in.interface" target="_blank" class="work__img">
+                        <img src="linkedinweb.png" alt="linkd">
+                    </a>
+                    <a href="https://github.com/yaseenmirshal/apple-websites-interface" target="_blank" class="work__img">
+                        <img src="appleweb.png" alt="appleweb">
+                    </a>
+                    <a href="" class="work__img">
+                        <img src="PORTFOLIO1.png" alt="appleweb">
+                    </a>
+                </div>
+            </section>
+
+             <!-- ===== CONTACT ===== -->
+             <section class="contact section" id="contact">
+                <h2 class="section-title">Contact</h2>
+
+                <div class="contact__container bd-grid">
+                    <form action="" class="contact__form">
+                        <input id="name" type="text" placeholder="Name" class="contact__input">
+                        <input id="email" type="email" placeholder="Email" class="contact__input">
+                        <textarea id="message" name="" id="" placeholder="Message" cols="0" rows="10" class="contact__input"></textarea>
+                        <button type="button" value="Submit" class="contact__button button" onclick="sendMail()">Submit</button>
+                    </form>
+                </div>
+            </section>
+        </main> 
+
+       
+        <footer class="footer">
+            <p class="footer__title">Mirshal</p>
+            <div class="footer__social">
+                <a href="#" class="footer__icon"><i class='bx bxl-facebook' ></i></a>
+                <a href="https://instagram.com/yaseen_mirshal?igshid=NzZlODBkYWE4Ng==" class="footer__icon"><i class='bx bxl-instagram' ></i></a>
+                <a href="https://twitter.com/yaseen_mirshal" class="footer__icon"><i class='bx bxl-twitter' ></i></a>
+                <a href="http://wa.link/x6pfzt" class="footer__icon"><i class='bx bxl-whatsapp' ></i></a>
+            </div>
+            <p class="footer__copy">&#169; ym innovation. All rigths reserved</p>
+        </footer>
+
+
+        <!-- ===== SCROLL REVEAL ===== -->
+        <script src="https://unpkg.com/scrollreveal"></script> 
+
+        <!-- ===== MAIN JS ===== -->
+        <script src="main.js"></script> 
+    </body>
+</html>
