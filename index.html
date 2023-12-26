@@ -23,6 +23,7 @@
         <header class="l-header">
             <img class="logoimg" src="ymremove.png">
             <nav class="nav bd-grid">
+            
                 
                 <div>
                     
@@ -34,7 +35,7 @@
                     <ul class="nav__list">
                         <li class="nav__item"><a href="#home" class="nav__link ">Home</a></li>
                         <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
-                        <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
+                        <li class="nav__item"><a href="#Skills" class="nav__link">Skills</a></li>
                         <li class="nav__item"><a href="#work" class="nav__link">Works</a></li>
                         <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
                         <li class="nav__item"><a href="ym.pdf" target="_blank" class="nav__link">Download CV</a></li>
@@ -82,12 +83,13 @@
                         width: 250px;
                         height: 80pt;
                         margin-left: 140px;
-                        margin-top: 300px;
+                        margin-top: 305px;
                         top: 0;
                         bottom: 0;
                         /* background-color: white; */
                     
-                        filter: url(#threshold) blur(0.6px);
+                        animation: 2s fadeInAnimation;
+                        filter: url(#threshold) blur(0.1px);
                     }
                     
                     #text1,#text2 {
@@ -95,10 +97,12 @@
                         width: 100%;
                         display: inline-block;
                         color: #DEDEDE;
+                        letter-spacing: 2.5px;
+                       
 
                     
                         font-family: "Raleway", sans-serif;
-                        font-size: 53pt;
+                        font-size: 50pt;
                         text-align: center;
                     
                         user-select: none;
@@ -215,22 +219,20 @@
             <section class="about section" id="about">
                 <h2 class="section-title">About</h2>
                 <div class="about__container bd-grid"></div>
-                
-            </section>
-            <!-- <div class="about__img"> -->
                 <img  class="lapimg" src="code lap.jpeg">
-            <!-- </div> -->
-                    <div class="aboutclass">
-                        <h2 class="about__subtitle">I'am Yaseen Mirshal</h2>
-                        <p class="about__text">
-                            As a dedicated web developer, I am enthusiastic about undertaking freelance projects. Please explore my portfolio to witness the diverse range of projects . Should you have any projects in mind, do not hesitate to contact me. My commitment to excellence is driven by a profound passion for programming and an unwavering commitment to continuous self-improvement. Rather than relying solely on qualifications, I prioritize ongoing learning to broaden my skill set. I look forward to the prospect of contributing to and enhancing your projects with my expertise and dedication.
-                        </p>           
-                    </div>                                   
+                <div class="aboutclass">
+                    <h2 class="about__subtitle">I'am Yaseen Mirshal</h2>
+                    <p class="about__text">
+                        As a dedicated web developer, I am enthusiastic about undertaking freelance projects. Explore my portfolio to witness the diverse range of projects . Should you have any projects in mind, do not hesitate to contact me. My commitment to excellence is driven by a profound passion for programming and an unwavering commitment to continuous self-improvement. Rather than relying solely on qualifications, I prioritize ongoing learning to broaden my skill set. I look forward to the prospect of contributing to and enhancing your projects with my expertise and dedication.
+                    </p>           
+                </div> 
+            </section>
+                                                     
                 </div>
             </section>
 
              <!-- ===== SKILLS ===== -->
-              <section class="skills section" id="skills">
+              <section class="skills-section" id="Skills">
                 <h2 class="section-title">Skills</h2>
 
                 <div class="skills__container bd-grid">          
