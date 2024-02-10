@@ -448,9 +448,7 @@ img {
       margin-top: 200px;
     }
   .skills__img{
-   
-    scale: .1;
-    position: absolute;
+   display:none;
   }
 }
 
