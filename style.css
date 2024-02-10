@@ -381,6 +381,9 @@ img {
     background-color: var(--second-color);
     transition: .5s;
   }
+ .skills__img{
+  display:none;
+ }
 .l-header {
     width: 100%;
     position: fixed;
