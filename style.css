@@ -184,6 +184,18 @@ html {
   transition: 300ms;
   animation: 2s anim-lineUp;
 }
+.buttonsub{
+  display: inline-block;
+  background-color: #6ea4bf;
+  color: #001f3f;
+  padding: .75rem 2.5rem;
+  font-weight: var(--font-semi);
+  border-radius: .5rem;
+  transition: .3s;
+  margin-right: 800px;
+  transition: 300ms;
+  animation: 2s anim-lineUp;
+}
 
 .button:hover {
   background-color: #dedede;
@@ -411,6 +423,13 @@ img {
       /* margin-left: 80px; */
       
     }
+    .buttonsub{
+      height: 40px;
+      width: 180px !important;
+      padding: 9px;
+      text-align: center;
+      margin-left: 60px !important;
+    }
     .logoimg{
       margin-top: -2px;
       margin-left: 5px;
@@ -453,6 +472,10 @@ img {
   .skills__img{
    display:none;
   }
+  .contact__input{
+    width: 310px !important;
+  }
+
 }
 
 
@@ -618,7 +641,7 @@ img {
 
 /* ===== CONTACT =====*/
 .contact__input {
-  width: 100%;
+  width: 700px;
   font-size: var(--normal-font-size);
   font-weight: var(--font-semi);
   padding: 1rem;
@@ -800,4 +823,3 @@ img {
 html, body{
   overflow-x: hidden;
 }
-
